@@ -1,0 +1,18 @@
+<%! from django.utils.translation import ugettext as _ %>
+
+% if display_name is not UNDEFINED and display_name is not None:
+  <h2> ${display_name} </h2>
+% endif
+
+<script src="/static/player/videoplayer.js"></script>
+<div id="T-video">
+  <video width="640" height="360" controls="controls">
+    <source type="${sourceType}" src="${source}"/>
+    % if track_zh:
+    <track kind="subtitles" src="${track_zh}" srclang="ch" label="中文"/>
+    % endif
+    % if track_en:
+    <track kind="subtitles" src="${track_en}" srclang="en" label="English"/>
+    % endif
+  </video>
+</div>
